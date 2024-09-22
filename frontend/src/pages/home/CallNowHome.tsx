@@ -1,6 +1,7 @@
-import Container from "../../components/ui/Container";
 
-export default function StatisticsHome() {
+import Container from '../../components/ui/Container'
+
+export default function CallNowHome() {
   return (
     <div
       className="w-full h-[500px] lg:h-[300px] mt-16 relative"
@@ -62,5 +63,5 @@ export default function StatisticsHome() {
         </Container>
       </div>
     </div>
-  );
+  )
 }

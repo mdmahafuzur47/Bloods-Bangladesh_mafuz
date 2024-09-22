@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import OurServices from "./OurServices";
 import AboutBloodBd from "./AboutBloodBd";
 import NearBy from "./NearBy/NearBy";
+import StatisticsHome from "./StatisticsHome";
+import CallNowHome from "./CallNowHome";
 
 const Home = () => {
   const { data, isLoading } = useGetUserQuery({});
@@ -40,6 +42,8 @@ const Home = () => {
       <OurServices />
       <NearBy />
       <AboutBloodBd />
+      <StatisticsHome />
+      <CallNowHome />
       <OurHeros />
       <BecomeOurNextHero />
       {/* <SacrificeSection /> */}
