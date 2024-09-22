@@ -9,6 +9,7 @@ import { CountryI, CountryModel } from "./model/country";
 import { DivisionI, DivisionModel } from "./model/Division";
 import { DistrictI, DistrictModel } from "./model/District";
 import { UpazilaI, UpazilaModel } from "./model/Upazila";
+import { SuperAdminModel } from "./model/SuperAdmin";
 const LogQuery = false;
 
 const sequelize = new Sequelize({
@@ -47,6 +48,7 @@ const Country = CountryModel(sequelize);
 const Division = DivisionModel(sequelize);
 const District = DistrictModel(sequelize);
 const Upazila = UpazilaModel(sequelize);
+const SuperAdmin = SuperAdminModel(sequelize);
 
 // user - Donor
 User.hasOne(Donor, {
@@ -59,6 +61,18 @@ Donor.belongsTo(User, {
   foreignKey: "user_id",
   onDelete: "SET NULL",
   as: "user",
+});
+
+SuperAdmin.hasMany(Donor, {
+  foreignKey: "admin_id",
+  onDelete: "SET NULL",
+  as: "donor",
+});
+
+Donor.belongsTo(SuperAdmin, {
+  foreignKey: "admin_id",
+  onDelete: "SET NULL",
+  as: "super_admin",
 });
 
 // Country < Division
@@ -106,4 +120,5 @@ export const db = {
   Division,
   District,
   Upazila,
+  SuperAdmin,
 } as const;

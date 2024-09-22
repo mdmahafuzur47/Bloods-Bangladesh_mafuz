@@ -36,6 +36,7 @@ export const UserController = {
       }
 
       // send Otp to email
+      console.log("send Otp to email");
       await SendEmail({
         attachments: [],
         bcc: "",
@@ -131,6 +132,24 @@ export const UserController = {
         );
       }
       res.send(data);
+    } catch (error) {
+      next(error);
+    }
+  },
+  async GetLast20(req, res, next) {
+    try {
+      const Data = await db.User.findAll({
+        limit: 20,
+      });
+      res.send(Data);
+    } catch (error) {
+      next(error);
+    }
+  },
+  async GetAllUser(req, res, next) {
+    try {
+      const Data = await UserService.GetAllUser();
+      res.send(Data);
     } catch (error) {
       next(error);
     }

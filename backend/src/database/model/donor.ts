@@ -26,9 +26,11 @@ export interface DonorI
   longitude: string;
   latitude: string;
   address: string;
+  coordinates: { type: string; coordinates: string[] };
 
   status: "active" | "deactivate" | "un-verify";
   organization_id?: ForeignKey<string>;
+  admin_id?: ForeignKey<string>;
   user_id?: ForeignKey<string>;
   createdAt?: Date;
   updatedAt?: Date;
@@ -42,7 +44,7 @@ export function DonorModel(sequelize: Sequelize) {
       defaultValue: DataTypes.UUIDV4,
     },
     email: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.STRING,
       validate: {
         isEmail: true,
@@ -92,6 +94,10 @@ export function DonorModel(sequelize: Sequelize) {
     },
     latitude: {
       type: DataTypes.STRING,
+      allowNull: true,
+    },
+    coordinates: {
+      type: DataTypes.GEOMETRY("POINT"),
       allowNull: true,
     },
 

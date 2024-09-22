@@ -7,16 +7,17 @@ import BecomeOurNextHero from "./BecomeOurNextHero";
 import HeroSection from "./HeroSection";
 import OurHeros from "./OurHeros";
 import { Link } from "react-router-dom";
-import SacrificeSection from "./SacrificeSection";
+// import SacrificeSection from "./SacrificeSection";
 import OurServices from "./OurServices";
 import AboutBloodBd from "./AboutBloodBd";
+import NearBy from "./NearBy/NearBy";
 
 const Home = () => {
   const { data, isLoading } = useGetUserQuery({});
   return (
     <div>
       {isLoading && <Loading />}
-      <div className="px-2 max-w-4xl mx-auto">
+      <div className="px-2 max-w-4xl mx-auto ">
         {data
           ? !data?.donor && (
               <Alert
@@ -36,11 +37,12 @@ const Home = () => {
       <Bg />
       <HeroSection user={data} />
       <Banner />
-      <SacrificeSection />
       <OurServices />
+      <NearBy />
       <AboutBloodBd />
       <OurHeros />
       <BecomeOurNextHero />
+      {/* <SacrificeSection /> */}
     </div>
   );
 };

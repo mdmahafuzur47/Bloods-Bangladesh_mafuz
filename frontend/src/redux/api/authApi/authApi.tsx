@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { api } from "../api";
 
 export const authApi = api.injectEndpoints({
@@ -41,6 +42,24 @@ export const authApi = api.injectEndpoints({
       },
       providesTags: ["user"],
     }),
+    get20User: builder.query<any, any>({
+      query: () => {
+        return {
+          url: "/user/20-user",
+          method: "GET",
+        };
+      },
+      providesTags: ["user"],
+    }),
+    getAllUser: builder.query<any, any>({
+      query: () => {
+        return {
+          url: "/user/all-user",
+          method: "GET",
+        };
+      },
+      providesTags: ["user"],
+    }),
   }),
 });
 
@@ -49,4 +68,6 @@ export const {
   useLoginUserMutation,
   useEmailVerificationMutation,
   useGetUserQuery,
+  useGet20UserQuery,
+  useGetAllUserQuery,
 } = authApi;
