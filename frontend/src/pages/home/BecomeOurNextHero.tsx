@@ -9,7 +9,7 @@ const BecomeOurNextHero = () => {
           background:
             "radial-gradient(95.7% 122.85% at 97.67% 92.66%, #FF7177 0%, #B30000 100%)",
         }}
-        className="bg-p1 relative mt-28 mb-10 h-80 md:h-auto p-16 flex justify-center md:justify-end"
+        className="bg-p1 relative mt-36 mb-10 h-80 md:h-auto p-16 flex justify-center md:justify-end"
       >
         <img
           src={"/images/person.png"}

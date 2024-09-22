@@ -43,8 +43,8 @@ const Home = () => {
       <NearBy />
       <AboutBloodBd />
       <StatisticsHome />
-      <CallNowHome />
       <OurHeros />
+      <CallNowHome />
       <BecomeOurNextHero />
       {/* <SacrificeSection /> */}
     </div>
